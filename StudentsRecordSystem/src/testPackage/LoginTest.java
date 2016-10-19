@@ -10,7 +10,12 @@ public class LoginTest {
 
 	@Test
 	public void test() {
-		assertTrue(true);
+		UserManager usermanager= new UserManager();
+		User user=new User(1234, 1234);
+		usermanager.signup(user);
+		
+		boolean result=usermanager.login(1234,1234);
+		assertTrue(result);
 	}
 
 }
