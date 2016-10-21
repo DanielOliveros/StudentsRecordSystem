@@ -1,0 +1,3 @@
+clara;123456;Admin
+favour;jjjjjj;Lecturer
+mirian;kkkkkk;student
