@@ -1,0 +1,10 @@
+id,name,credits,lecturerID,programID,description,
+CS5721,Software Design,6,100000,LM338,UML and Patterns,
+CS5707,Phisolophy of Reseaarch,5,100001,LM334,Research Method,
+CS5741,Concurrency,9,100002,LM335,Concurrency System,
+new append!append end. 
+new append!append end. 
+new append!append end. 
+new append!append end. 
+111new append!append end. 
+111new append!append end. 
