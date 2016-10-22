@@ -1,35 +1,35 @@
 package Domain;
+import java.util.Scanner;
 
-
-public class Admin {
-    private String id;
-    private String name;
-    private String password;
-    
-    public Admin(String id, String name, String password){
-		this.id=id;
-		this.name=name;
-		this.password = password;
+public class Admin extends User{
+ 
+    private Scanner scan;
+	public Admin(String id, String name, String password){
+		super(id, name, password);
 	}
-    
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}	
+    public User signUp(){
+    	scan = new Scanner(System.in);
+    	String id, name, password, role;
+    	System.out.println("Please select the role of the new user:\n1.Admin\n2.Lecturer\n3.Student");
+    	switch(scan.nextInt()){
+    	case 1: 
+    		role = "Admin";
+    		break;
+    	case 2: 
+    		role = "Lecturer";
+    		break;
+    	default:
+    		role = "Student";
+    		break;
+    	}
+    	System.out.println("Please insert the user name: ");
+    	name = scan.nextLine();
+    	name = scan.nextLine();
+    	System.out.println("Please insert the user id: ");
+    	id = scan.nextLine();
+    	System.out.println("Please insert the user password: ");
+    	password = scan.nextLine();
+    	//ask for data in this method.
+    	return UserManager.getUserManager().newUser(id, name, password, role);
+    }
 }

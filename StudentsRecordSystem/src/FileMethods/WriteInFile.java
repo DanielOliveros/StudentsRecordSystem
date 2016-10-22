@@ -6,15 +6,14 @@ import java.io.RandomAccessFile;
 
 public class WriteInFile {
 	 /** 
-     * A Methods：Use RandomAccessFile 
+     * A Methods锟斤拷Use RandomAccessFile 
      */  
     public static void appendMethodA(String fileName, String content) {  
-        try {  
-            // 打开一个随机访问文件流，按读写方式  
+        try {   
             RandomAccessFile randomFile = new RandomAccessFile(fileName, "rw");  
-            // 文件长度，字节数  
+
             long fileLength = randomFile.length();  
-            //将写文件指针移到文件尾。  
+  
             randomFile.seek(fileLength);  
             randomFile.writeBytes(content);  
             randomFile.close();  
@@ -24,11 +23,10 @@ public class WriteInFile {
     }  
   
     /** 
-     * B Methods：use FileWriter 
+     * B Methods锟斤拷use FileWriter 
      */  
     public static void appendMethodB(String fileName, String content) {  
         try {  
-            //打开一个写文件器，构造函数中的第二个参数true表示以追加形式写文件  
             FileWriter writer = new FileWriter(fileName, true);  
             writer.write(content);  
             writer.close();  
