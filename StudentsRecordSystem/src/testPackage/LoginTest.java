@@ -5,18 +5,21 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Domain.Admin;
-import Domain.User;
-import Domain.UserManager;
+import Domain.Lecturer;
+import Domain.ManageLogin;
+import Domain.ManageUsers;
+import Domain.Student;
 
 public class LoginTest {
 	@Test 
 	public void testLoginAndSignUp() {
 		boolean result=true;
-		UserManager usermanager = new UserManager();
 		try{
-			Admin admin = (Admin) usermanager.login();//the user must introduce admin credentials (idadmin and pass)
-			User lecturer = admin.signUp();
-			User student = admin.signUp();
+			ManageLogin loginManager = ManageLogin.getManageLogin();
+			ManageUsers usersManager = ManageUsers.getManageUsers();
+			Admin admin = (Admin) loginManager.login("idadmin", "pass");
+			Student student = (Student) usersManager.signUp("idStudent", "NameStudent", "pass", "Student");
+			Lecturer lecturer = (Lecturer) usersManager.signUp("idLecturer", "NameLecturer", "pass", "Student");
 		}catch(Exception e){
 			result = false;
 		}
