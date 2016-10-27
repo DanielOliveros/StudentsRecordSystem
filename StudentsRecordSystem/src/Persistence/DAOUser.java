@@ -12,13 +12,11 @@ import Domain.User;
 
 public class DAOUser {
 	public static Boolean createUser(User user){
-		
 		boolean result=true;
 		FileWriter fileUsers = null;
         PrintWriter pw = null;
-        try
-        {
-        	fileUsers = new FileWriter("./users.txt", true);
+        try {
+        	fileUsers = new FileWriter("./StorageFiles/users.txt", true);
             pw = new PrintWriter(fileUsers);
             pw.println(user.getId()+","+user.getName()+","+user.getPassword()+","+user.getClass().getSimpleName());
 
@@ -41,7 +39,7 @@ public class DAOUser {
 	public static User getUser(String id){
 		String line;
 		try{
-	        FileReader f = new FileReader("./users.txt");
+	        FileReader f = new FileReader("./StorageFiles/users.txt");
 	        BufferedReader b = new BufferedReader(f);
 	        while((line = b.readLine())!=null) {
 	        	String[] parts = line.split(",");

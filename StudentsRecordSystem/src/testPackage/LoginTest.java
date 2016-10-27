@@ -15,11 +15,9 @@ public class LoginTest {
 	public void testLoginAndSignUp() {
 		boolean result=true;
 		try{
-			ManageLogin loginManager = ManageLogin.getManageLogin();
-			ManageUsers usersManager = ManageUsers.getManageUsers();
-			Admin admin = (Admin) loginManager.login("idadmin", "pass");
-			Student student = (Student) usersManager.signUp("idStudent", "NameStudent", "pass", "Student");
-			Lecturer lecturer = (Lecturer) usersManager.signUp("idLecturer", "NameLecturer", "pass", "Student");
+			Admin admin = (Admin) ManageLogin.login("idadmin", "pass");
+			Student student = (Student) ManageUsers.signUp("idStudent", "NameStudent", "pass", "Student");
+			Lecturer lecturer = (Lecturer) ManageUsers.signUp("idLecturer", "NameLecturer", "pass", "Student");
 		}catch(Exception e){
 			result = false;
 		}

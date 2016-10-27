@@ -7,19 +7,18 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import Domain.Program;
+import Domain.Module;
 
-
-public class DAOProgram {
-	public static Boolean createProgram(Program program){
+public class DAOModule {
+	public static Boolean createModule(Module module){
 		boolean result=true;
 		FileWriter file = null;
         PrintWriter pw = null;
         try
         {
-        	file = new FileWriter("./StorageFiles/programs.txt", true);
+        	file = new FileWriter("./StorageFiles/modules.txt", true);
             pw = new PrintWriter(file);
-            pw.println(program.getId()+","+program.getName()+","+program.getCredits()+","+program.getDescription());
+            pw.println(module.getId()+","+module.getName()+","+module.getCredits()+","+module.getDescription()+","+module.getIdProgram());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -35,16 +34,16 @@ public class DAOProgram {
 		return result;
 	}
 	
-	public static Program getProgram(String id){
+	public static Module getModule(String id){
 		String line;
 		try{
-	        FileReader f = new FileReader("./StorageFiles/programs.txt");
+	        FileReader f = new FileReader("./StorageFiles/modules.txt");
 	        BufferedReader b = new BufferedReader(f);
 	        while((line = b.readLine())!=null) {
 	        	String[] parts = line.split(",");
 	        	if(id.equals(parts[0])){
 	        		b.close();
-	        		return new Program(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3]);
+	        		return new Module(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], parts[4]);
 	        	}
 	        }
 	        b.close();
@@ -54,25 +53,22 @@ public class DAOProgram {
 		return null;
 	}
 	
-	
-	
-	public static List<Program> getAllPrograms(){
+	public static List<Module> getAllModules(){
 		String line;
-		List<Program> programsList = new ArrayList<Program>();
+		List<Module> modulesList = new ArrayList<Module>();
 		
 		try{
-	        FileReader f = new FileReader("./StorageFiles/programs.txt");
+	        FileReader f = new FileReader("./StorageFiles/modules.txt");
 	        BufferedReader b = new BufferedReader(f);
 	        while((line = b.readLine())!=null) {
 	        	String[] parts = line.split(",");
-	        	programsList.add(new Program(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3]));	        	
+	        	modulesList.add(new Module(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], parts[4]));
 	        }
 	        b.close();
 		}catch(Exception e){
 			System.out.println("Error in the file reading");
-			programsList = null;
+			modulesList = null;
 		}
-		return programsList;
+		return modulesList;
 	}
-	
 }

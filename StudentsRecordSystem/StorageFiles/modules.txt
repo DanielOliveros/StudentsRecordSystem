@@ -1,0 +1,3 @@
+moduleID,moduleName,6,modDesc,programID
+CS572,SoftwareDesign,6,learn how to design software, programID
+CS455,Software Requirements,6,learn how to elicitate requirements,ProgramID

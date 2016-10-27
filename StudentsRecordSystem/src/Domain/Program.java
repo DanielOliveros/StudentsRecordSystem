@@ -1,24 +1,23 @@
 package Domain;
 
-
 public class Program {
-	private String ID;
+	private String id;
 	private int credits;
 	private String name;
 	private String description;
 	
-	public Program(String ID,int credits,String name,String description){
-		this.ID = ID;
+	public Program(String id, String name, int credits, String description){
+		this.id = id;
 		this.credits = credits;
 		this.name = name;
 		this.description = description;
 	}
-	public String getID() {
-		return ID;
+	public String getId() {
+		return id;
 	}
 
-	public void setID(String iD) {
-		ID = iD;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public int getCredits() {

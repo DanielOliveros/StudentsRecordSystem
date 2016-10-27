@@ -1,6 +1,0 @@
-LM331,60,nameA,AAAAAA,
-LM332,20,nameB,bbbbbb,
-LM333,30,nameC,cccccccccc,
-LM334,50,nameD,ddddddddd,
-LM335,40,software,test,
-LM336,20,test,test,
