@@ -20,4 +20,9 @@ public class ManageModules {
 	public static List<Module> getAllModules(){
 		return DAOModule.getAllModules();
 	}
+	
+	public static void allocateLecturer(String lecturerID, String moduleID){
+		///IMPLEMENT
+	}
+	
 }
