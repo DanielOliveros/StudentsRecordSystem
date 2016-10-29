@@ -16,4 +16,8 @@ public class ManageUsers {
 		}
 		return user;
     }
+	
+	public static void registerStudentIntoProgram(Stirng studentId, String programId){
+		//
+	}
 }
