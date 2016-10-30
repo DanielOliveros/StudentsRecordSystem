@@ -3,6 +3,8 @@ package adminMenus;
 import java.util.List;
 import java.util.Scanner;
 
+import Domain.LecturerModule;
+import Domain.ManageLecturerModule;
 import Domain.ManageModules;
 import Domain.Module;
 import UserInterface.Menu;
@@ -16,20 +18,28 @@ public class ManageModulesMenu implements Menu{
 		int option;
 		do{
 			System.out.println("MANAGE MODULES MENU");
-			System.out.println("Plase, select one of the following options:\n1. List modules \n2. Add module \n3. Go back to Admin Menu");
+			System.out.println("Plase, select one of the following options:\n1. List modules \n2. Add module \n3. Allocate Lecturer to Module \n4. List allocated Lecturer to Module \n5. Go back to Admin Menu");
 			option = scan.nextInt();
-			if(option <1 || option > 3){
+			if(option <1 || option > 5){
 				System.out.println("You have introduced an invalid option.");
 			}
-		}while(option < 1 || option > 3);
+		}while(option < 1 || option > 5);
 		Menu myMenu;
 		switch(option){
 			case 1://List Modules
 				listModules();
 				this.display();
 			break;
-			case 2://Add Module (includes allocating the module lecturer and program)
+			case 2://Add Module
 				addModule();
+				this.display();
+			break;
+			case 3://Allocate lecturer to module
+				addallocateLecturerToModule();
+				this.display();
+			break;
+			case 4://List allocated lecturer to module
+				listAllocateLecturerToModule();
 				this.display();
 			break;
 			default://Go to Admin Menu
@@ -72,4 +82,34 @@ public class ManageModulesMenu implements Menu{
 			}
 		}
 	}
+	
+	public static void addallocateLecturerToModule(){
+		String lecturerID; String moduleID;
+		
+		System.out.println("OPTION SELECTED: Allocate Lecturer to module ");
+		
+		System.out.println("Please insert lecturer ID:");
+		lecturerID = scan.nextLine();
+		lecturerID = scan.nextLine();
+		System.out.println("Please insert module ID:");
+		moduleID=scan.nextLine();
+		
+		if(ManageLecturerModule.allocateLecturerToModule(lecturerID, moduleID)== true){
+			System.out.println("Module successfully alocated to Lecturer.");
+			
+		}else{
+			System.err.println("Invalid entry, you tried to assign a Lecturer or Staff that does not exist.");
+		}
+		
+	}
+	
+	public void listAllocateLecturerToModule(){
+		System.out.println("OPTION SELECTED: list allocated Lecturers to Modules:");
+		List<LecturerModule> manageLecturerModule = ManageLecturerModule.getAlocateLectureModule();
+		for(int i=0; i<manageLecturerModule.size(); i++){
+			LecturerModule mod = manageLecturerModule.get(i);
+			System.out.println((i+1)+". " +"Module Id - "+mod.getModuleID()+"; Lecturer Id - " + mod.getLecturerID());
+		}
+	}
+	
 }

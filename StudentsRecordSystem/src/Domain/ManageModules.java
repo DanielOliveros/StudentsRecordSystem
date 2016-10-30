@@ -21,8 +21,4 @@ public class ManageModules {
 		return DAOModule.getAllModules();
 	}
 	
-	public static void allocateLecturer(String lecturerID, String moduleID){
-		///IMPLEMENT
-	}
-	
 }

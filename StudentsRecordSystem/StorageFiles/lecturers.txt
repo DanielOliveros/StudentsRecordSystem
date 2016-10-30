@@ -1,0 +1,4 @@
+lec id,lec name,lec pass,lec pos,lec dep
+001,J. J Collins,password1,Lecturer Software Design,Software Engineering
+002,Jim Buckly,password2,Lecturer Software Research,Software Engineering
+005,Noura,passsss,lec,computer sciece

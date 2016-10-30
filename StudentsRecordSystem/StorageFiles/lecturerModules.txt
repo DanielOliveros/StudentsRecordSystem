@@ -1,0 +1,4 @@
+module Id,lecturer Id
+CS5721,001
+CS5701,002
+CS5721,002

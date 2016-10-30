@@ -22,6 +22,7 @@ public class AdminMenu implements Menu{
 				System.out.println("You have introduced an invalid option.");
 			}
 		}while(option < 1 || option > 5);
+		
 		Menu myMenu;
 		switch(option){
 			case 1://Manage Programs
