@@ -1,7 +1,11 @@
 package Domain;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 
-
+import Persistence.DAOModule;
+import Persistence.DAOProgram;
 import Persistence.DAOUser;
 
 public class ManageUsers {
@@ -17,7 +21,28 @@ public class ManageUsers {
 		return user;
     }
 	
-	public static void registerStudentIntoProgram(Stirng studentId, String programId){
-		//
+	public static ProgramStudents registerStudentIntoProgram(String programId,String studentId){
+		ProgramStudents prostu;
+		boolean result=DAOUser.checkProStu(programId,studentId);
+		if(!result){
+			prostu = new ProgramStudents(programId, studentId);
+			DAOUser.registerStudentIntoProgram(prostu);
+			//createQCA(studentId,programId);
+			//createQPVs(studentId,programId);
+		}else{
+			prostu = null;
+		}
+		return prostu;
+	}
+
+	//createQCA
+	//createQPVs
+	
+	public static List<User> getAllUsers(String option) {
+		return DAOUser.getAllUsers(option);
+	}
+
+	public static List<ProgramStudents> getAllUsersByProgramID(String programID) {
+		return DAOUser.getAllUsersByProgramID(programID);
 	}
 }

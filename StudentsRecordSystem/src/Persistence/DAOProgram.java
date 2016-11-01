@@ -3,11 +3,13 @@ package Persistence;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import Domain.Program;
+import Domain.ProgramStudents;
 
 
 public class DAOProgram {
@@ -54,8 +56,6 @@ public class DAOProgram {
 		return null;
 	}
 	
-	
-	
 	public static List<Program> getAllPrograms(){
 		String line;
 		List<Program> programsList = new ArrayList<Program>();
@@ -74,5 +74,6 @@ public class DAOProgram {
 		}
 		return programsList;
 	}
+
 	
 }

@@ -21,4 +21,5 @@ public class ManagePrograms {
 	public static List<Program> getAllPrograms(){
 		return DAOProgram.getAllPrograms();
 	}
+
 }

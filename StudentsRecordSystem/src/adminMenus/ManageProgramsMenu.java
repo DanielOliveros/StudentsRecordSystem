@@ -57,7 +57,7 @@ public class ManageProgramsMenu implements Menu{
 		}
 	}
 	public void addProgram(){
-		String name, id, description;
+		String name, id, description, students=" ";
 		int credits;
 		boolean error = true;
 		System.out.println("OPTION SELECTED: add program ");
