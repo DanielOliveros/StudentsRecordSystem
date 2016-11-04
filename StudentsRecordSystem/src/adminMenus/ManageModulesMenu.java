@@ -16,7 +16,7 @@ public class ManageModulesMenu implements Menu{
 		int option;
 		do{
 			System.out.println("MANAGE MODULES MENU");
-			System.out.println("Plase, select one of the following options:\n1. List modules \n2. Add module \n3. Go back to Admin Menu");
+			System.out.println("Please, select one of the following options:\n1. List modules \n2. Add module \n3. Go back to Admin Menu");
 			option = scan.nextInt();
 			if(option <1 || option > 3){
 				System.out.println("You have introduced an invalid option.");

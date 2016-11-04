@@ -16,12 +16,12 @@ public class AdminMenu implements Menu{
 		int option;
 		do{
 			System.out.println("ADMIN MENU");
-			System.out.println("Plase, select one of the following options:\n1. Manage Programs\n2. Manage Modules\n3. Manage Students\n4. Manage Lecturers\n5. Log out");
+			System.out.println("Plase, select one of the following options:\n1. Manage Programs\n2. Manage Modules\n3. Manage Students\n4. Manage Lecturers\n5. Register Students for mail\n6. Log out");
 			option = scan.nextInt();
-			if(option <1 || option > 5){
+			if(option <1 || option > 6){
 				System.out.println("You have introduced an invalid option.");
 			}
-		}while(option < 1 || option > 5);
+		}while(option < 1 || option > 6);
 		Menu myMenu;
 		switch(option){
 			case 1://Manage Programs
@@ -38,6 +38,10 @@ public class AdminMenu implements Menu{
 			break;
 			case 4:
 				myMenu = new ManageLecturersMenu();
+				myMenu.display();
+			break;
+			case 5:
+				myMenu = new ManageStudentMailMenu();
 				myMenu.display();
 			break;
 			default:

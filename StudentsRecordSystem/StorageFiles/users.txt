@@ -1,3 +1,6 @@
 idadmin,Admin Name,pass,Admin
 LecturerID,LecturerName,pass,Lecturer
-StudentID,StudentName,pass,Student
+StudentID1,StudentName1,pass,Student
+StudentID2,StudentName2,pass,Student
+StudentID3,StudentName3,pass,Student
+StudentID4,StudentName4,pass,Student
