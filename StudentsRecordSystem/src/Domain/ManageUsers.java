@@ -1,11 +1,7 @@
 package Domain;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 
-import Persistence.DAOModule;
-import Persistence.DAOProgram;
 import Persistence.DAOUser;
 
 public class ManageUsers {
@@ -23,20 +19,25 @@ public class ManageUsers {
 	
 	public static ProgramStudents registerStudentIntoProgram(String programId,String studentId){
 		ProgramStudents prostu;
+		QCA qca;
+		QPV qpv;
+		double QCA = 0.00,QPV = 0;
+		String awardClassification = null;
+		int percentage = 0;
+		String moduleId = null,grade = null;
 		boolean result=DAOUser.checkProStu(programId,studentId);
 		if(!result){
 			prostu = new ProgramStudents(programId, studentId);
+			qca = new QCA(Integer.parseInt(studentId),programId,QCA,awardClassification);
 			DAOUser.registerStudentIntoProgram(prostu);
-			//createQCA(studentId,programId);
-			//createQPVs(studentId,programId);
+			DAOUser.createQCA(qca);
+			qpv = new QPV(moduleId,Integer.parseInt(studentId),grade,QPV,percentage);
+			DAOUser.createQPVs(qpv);
 		}else{
 			prostu = null;
 		}
 		return prostu;
 	}
-
-	//createQCA
-	//createQPVs
 	
 	public static List<User> getAllUsers(String option) {
 		return DAOUser.getAllUsers(option);

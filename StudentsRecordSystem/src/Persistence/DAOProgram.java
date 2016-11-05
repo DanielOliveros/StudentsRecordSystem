@@ -75,5 +75,23 @@ public class DAOProgram {
 		return programsList;
 	}
 
-	
+	public static boolean getQCA(String programId, String studentId) {
+		String line;
+		boolean result = false;
+		try{
+	        FileReader f = new FileReader("./StorageFiles/QCA.txt");
+	        BufferedReader b = new BufferedReader(f);
+	        while((line = b.readLine())!=null) {
+	        	String[] parts = line.split(",");
+	        	if(programId.equals(parts[0])&&studentId.equals(parts[1])){
+	        		result=true;
+	        	}
+	        }
+	        b.close();
+		}catch(Exception e){
+			System.out.println("Error in the file reading");
+			result=true;
+		}
+		return result;
+	}
 }

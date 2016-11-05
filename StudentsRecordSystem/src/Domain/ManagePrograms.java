@@ -4,6 +4,7 @@ package Domain;
 import java.util.List;
 
 import Persistence.DAOProgram;
+import Persistence.DAOUser;
 
 public class ManagePrograms {
 	
@@ -21,5 +22,4 @@ public class ManagePrograms {
 	public static List<Program> getAllPrograms(){
 		return DAOProgram.getAllPrograms();
 	}
-
 }

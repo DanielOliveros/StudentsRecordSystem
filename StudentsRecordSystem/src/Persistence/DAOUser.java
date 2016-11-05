@@ -3,13 +3,17 @@ package Persistence;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import Domain.Admin;
 import Domain.Lecturer;
 import Domain.ProgramStudents;
+import Domain.QCA;
+import Domain.QPV;
 import Domain.Student;
 import Domain.User;
 
@@ -164,6 +168,67 @@ public class DAOUser {
 			System.out.println("Error in the file reading");
 			result=true;
 		}
+		return result;
+	}
+
+    public static QPV createQPVs(QPV qpv){
+    	String content = qpv.getStudentID()+"";
+    	String programId = null;
+    	try{
+			BufferedReader br = new BufferedReader(new FileReader("./StorageFiles/programStudents.txt"));
+			String line = null;
+			while((line = br.readLine())!= null){		
+				String[] tmp = line.split(",");		//split by ","
+				for(int i=0; i<tmp.length; i++){
+					if(tmp[i].indexOf(content)!= -1){
+						programId = tmp[0];
+					}
+				}
+			}
+			br.close();
+			BufferedReader br1 = new BufferedReader(new FileReader("./StorageFiles/modules.txt"));
+			String line1 = null;
+			 FileWriter writer = new FileWriter("./StorageFiles/QPV.txt", true);  
+	         String newinformation = null;
+			while((line1 = br1.readLine())!= null){		
+				String[] tmp = line1.split(",");		//split by ","
+				for(int i=0; i<tmp.length; i++){
+					if(tmp[i].indexOf(programId)!= -1){
+						newinformation = "\n"+tmp[0]+","+content+",,,";
+				        writer.write(newinformation);
+					}
+				}
+			}
+			writer.close();
+			br1.close();
+		}catch(IOException e){
+			System.out.println("select failed");
+		}finally{
+			
+		}				
+    	return qpv;
+    } 
+
+	public static boolean createQCA(QCA qca) {
+		boolean result=true;
+		FileWriter file = null;
+        PrintWriter pw = null;
+        try
+        {
+        	file = new FileWriter("./StorageFiles/QCA.txt", true);
+            pw = new PrintWriter(file);
+            pw.println(qca.getStudentID()+","+qca.getProgramID()+","+qca.getQCA()+","+qca.getAwardClassification());
+        } catch (Exception e) {
+            e.printStackTrace();
+            result = false;
+        } finally {
+           try {
+           if (null != file)
+        	   file.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
 		return result;
 	}
 }
