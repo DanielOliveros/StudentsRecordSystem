@@ -176,7 +176,9 @@ public class DAOUser {
     	String programId = null;
     	try{
 			BufferedReader br = new BufferedReader(new FileReader("./StorageFiles/programStudents.txt"));
-			String line = null;
+			BufferedReader br1 = new BufferedReader(new FileReader("./StorageFiles/modules.txt"));
+			FileWriter writer = new FileWriter("./StorageFiles/QPV.txt", true);  
+			String line = null,line1 = null,newinformation = null;
 			while((line = br.readLine())!= null){		
 				String[] tmp = line.split(",");		//split by ","
 				for(int i=0; i<tmp.length; i++){
@@ -185,11 +187,6 @@ public class DAOUser {
 					}
 				}
 			}
-			br.close();
-			BufferedReader br1 = new BufferedReader(new FileReader("./StorageFiles/modules.txt"));
-			String line1 = null;
-			 FileWriter writer = new FileWriter("./StorageFiles/QPV.txt", true);  
-	         String newinformation = null;
 			while((line1 = br1.readLine())!= null){		
 				String[] tmp = line1.split(",");		//split by ","
 				for(int i=0; i<tmp.length; i++){
@@ -201,6 +198,7 @@ public class DAOUser {
 			}
 			writer.close();
 			br1.close();
+			br.close();
 		}catch(IOException e){
 			System.out.println("select failed");
 		}finally{

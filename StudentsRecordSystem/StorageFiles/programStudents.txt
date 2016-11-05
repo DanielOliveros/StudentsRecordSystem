@@ -9,5 +9,3 @@ M008,StudentID2
 M008,StudentID1
 CS2001,test
 SW66,1
-SW22,1
-SW22,1245
