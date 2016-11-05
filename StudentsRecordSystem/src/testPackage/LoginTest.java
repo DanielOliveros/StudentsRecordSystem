@@ -17,7 +17,7 @@ public class LoginTest {
 		try{
 			Admin admin = (Admin) ManageLogin.login("idadmin", "pass");
 			Student student = (Student) ManageUsers.signUp("idStudent", "NameStudent", "pass", "Student");
-			Lecturer lecturer = (Lecturer) ManageUsers.signUp("idLecturer", "NameLecturer", "pass", "Student");
+			Lecturer lecturer = (Lecturer) ManageUsers.signUp("idLecturer", "NameLecturer", "pass", "Lecturer");
 		}catch(Exception e){
 			result = false;
 		}

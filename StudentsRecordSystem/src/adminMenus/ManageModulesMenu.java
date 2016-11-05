@@ -47,7 +47,7 @@ public class ManageModulesMenu implements Menu{
 		}
 	}
 	public void addModule(){
-		String name, id, description, programId;
+		String name, id, description, programId, lecturerId;
 		int credits;
 		boolean error = true;
 		System.out.println("OPTION SELECTED: add module ");
@@ -64,7 +64,9 @@ public class ManageModulesMenu implements Menu{
 			System.out.println("Please introduce the module's program id: ");
 			programId = scan.nextLine();
 			programId = scan.nextLine();
-			if(ManageModules.addModule(id, name, credits, description, programId)!= null){
+			System.out.println("Please introduce the module's lecturer's id: ");
+			lecturerId = scan.nextLine();
+			if(ManageModules.addModule(id, name, credits, description, programId, lecturerId)!= null){
 				System.out.println("Module successfully added.");
 				error = false;
 			}else{

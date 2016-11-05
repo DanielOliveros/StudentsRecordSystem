@@ -17,12 +17,12 @@ public class ManageProgramsMenu implements Menu{
 		int option;
 		do{
 			System.out.println("MANAGE PROGRAMS MENU");
-			System.out.println("Plase, select one of the following options:\n1. List programs \n2. Add Program \n3. Edit Program\n4. Delete Program\n5. Go back to Admin Menu");
+			System.out.println("Plase, select one of the following options:\n1. List programs \n2. Add Program\n3. Go back to Admin Menu");
 			option = scan.nextInt();
-			if(option <1 || option > 5){
+			if(option <1 || option > 3){
 				System.out.println("You have introduced an invalid option.");
 			}
-		}while(option < 1 || option > 5);
+		}while(option < 1 || option > 3);
 		Menu myMenu;
 		switch(option){
 			case 1://List Programs
@@ -31,14 +31,6 @@ public class ManageProgramsMenu implements Menu{
 			break;
 			case 2://Add Program
 				addProgram();
-				this.display();
-			break;
-			case 3://Edit Program
-				editProgram();
-				this.display();
-			break;
-			case 4:// Delete Program
-				deleteProgram();
 				this.display();
 			break;
 			default://Go to Admin Menu
@@ -78,11 +70,5 @@ public class ManageProgramsMenu implements Menu{
 				System.out.println("There is an error with the data introduced. Please correct them");
 			}
 		}
-	}
-	public void editProgram(){
-		System.out.println("This feature is not implemented yet. Please select another one");
-	}
-	public void deleteProgram(){
-		System.out.println("This feature is not implemented yet. Please select another one");
 	}
 }

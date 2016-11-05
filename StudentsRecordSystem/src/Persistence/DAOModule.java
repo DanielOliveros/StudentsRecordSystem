@@ -43,7 +43,7 @@ public class DAOModule {
 	        	String[] parts = line.split(",");
 	        	if(id.equals(parts[0])){
 	        		b.close();
-	        		return new Module(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], parts[4]);
+	        		return new Module(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], parts[4], parts[5]);
 	        	}
 	        }
 	        b.close();
@@ -62,7 +62,7 @@ public class DAOModule {
 	        BufferedReader b = new BufferedReader(f);
 	        while((line = b.readLine())!=null) {
 	        	String[] parts = line.split(",");
-	        	modulesList.add(new Module(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], parts[4]));
+	        	modulesList.add(new Module(parts[0], parts[1], Integer.parseInt(parts[2]), parts[3], parts[4], parts[5]));
 	        }
 	        b.close();
 		}catch(Exception e){

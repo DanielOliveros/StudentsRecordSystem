@@ -1,17 +1,46 @@
 package Domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Module {
 	private String id;
 	private String name;
 	private String description;
 	private int credits;
 	private String idProgram;
-	public Module(String id, String name, int credits, String description, String idProgram){
+	private String idLecturer;
+	private List<Assignment> assignments = new ArrayList();
+	public Module(String id, String name, int credits, String description, String idProgram, String idLecturer){
 		this.id=id;
 		this.name=name;
 		this.credits=credits;
 		this.description=description;
 		this.idProgram=idProgram;
+		this.idLecturer = idLecturer;
+	}
+	public boolean addAssignment(String asName, String asDescription, int asPercentage){
+		if(checkValidPercentage(asPercentage)){
+			this.assignments.add(new Assignment(asName, asDescription, asPercentage));
+			return true;
+		}
+		return false;
+	}
+	public boolean checkValidPercentage(int asPercentage){
+		int globalPercentage = asPercentage;
+		for(int i=0; i<assignments.size(); i++){
+			globalPercentage = globalPercentage + assignments.get(i).getPercentage();
+		}
+		if(globalPercentage>100){
+			return false;
+		}
+		return true;
+	}
+	public String getIdLecturer(){
+		return this.idLecturer;
+	}
+	public void setIdLecturer(String idLecturer){
+		this.idLecturer=idLecturer;
 	}
 	public String getIdProgram(){
 		return this.idProgram;

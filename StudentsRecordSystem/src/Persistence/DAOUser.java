@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import Domain.Admin;
 import Domain.Lecturer;
+import Domain.Program;
 import Domain.Student;
 import Domain.User;
 
@@ -62,5 +65,36 @@ public class DAOUser {
 			System.out.println("Error in the file reading");
 		}
 		return null;
+	}
+	
+	public static List<User> getAllUsers(){
+		String line;
+		List<User> userslist = new ArrayList<User>();
+		
+		try{
+	        FileReader f = new FileReader("./StorageFiles/users.txt");
+	        BufferedReader b = new BufferedReader(f);
+	        while((line = b.readLine())!=null) {
+	        	String[] parts = line.split(",");
+	        	
+        		switch(parts[3]){
+        		case "Admin": 
+        			userslist.add(new Admin(parts[0], parts[1], parts[2]));
+        			break;
+        		case "Lecturer":
+        			userslist.add(new Lecturer(parts[0], parts[1], parts[2]));
+        			break;
+        		case "Student":
+        			userslist.add(new Student(parts[0], parts[1], parts[2]));
+        			break;
+        		}
+	        	     	
+	        }
+	        b.close();
+		}catch(Exception e){
+			System.out.println("Error in the file reading (getAllUsers)");
+			userslist = null;
+		}
+		return userslist;
 	}
 }
