@@ -1,9 +1,12 @@
 package lecturerMenus;
 
+import java.util.List;
 import java.util.Scanner;
 
+import Domain.Assignment;
 import Domain.ManageAllocatedModule;
-import Domain.ManagePrograms;
+import Domain.ManageUsers;
+import Domain.Module;
 import UserInterface.Menu;
 
 public class ManageAllocatedMenu implements Menu {
@@ -14,24 +17,29 @@ public class ManageAllocatedMenu implements Menu {
 	@Override
 	public void display() {
 		int option;
-		//根据用户ID查课程 尚未实现，函数要重新写，这个函数不对
-		//System.out.println("Please input ModuleID/ModuleName:");
-		//String lecturerID = scan.next();
-		//listModules();
-		//this.display();
+		System.out.println("Please input your ID:");
+		String lecturerID = scan.next();
+		listUserModules(lecturerID);
 		System.out.println("Please insert module ID:");
 		String moduleID = scan.next();
 		if(checkState(moduleID)){
-			System.out.println("this is ready");
+			listModuleAssessment(moduleID);
 		}else{
 				System.out.println("The assignment in "+moduleID+"is less than 100,please finish it first:");
                 do{
                 	addAssignment(moduleID);				
                 }while(!checkState(moduleID));
-                System.out.println("退出循环了");
+                listModuleAssessment(moduleID);
 		}
+		System.out.println("Please insert student ID:");
+		String studentID = scan.next();
+		setGrade(studentID,moduleID);
 	}
 	
+	
+	private void setGrade(String studentID, String moduleID) {
+		ManageAllocatedModule.setGrade(studentID,moduleID);
+	}
 	private void addAssignment(String moduleId) {
 		String name,description;
 		int percentage;
@@ -63,8 +71,20 @@ public class ManageAllocatedMenu implements Menu {
 		}
 		return error;
 	}
-	public void listUserModules(){
-		
+	public void listUserModules(String lecturerID){
+		List<Module> modules = ManageAllocatedModule.getUserModule(lecturerID);
+		for(int i=0; i<modules.size(); i++){
+			Module module = modules.get(i);
+			System.out.println((i+1)+". Module ID:"+module.getId());
+		}
+	}
+
+	private void listModuleAssessment(String moduleID) {
+		List<Assignment> assignment = ManageAllocatedModule.getModuleAssignment(moduleID);
+		for(int i=0; i<assignment.size(); i++){
+			Assignment ass = assignment.get(i);
+			System.out.println((i+1)+". Module ID:"+ass.getModuleId()+". Assessignment Name:"+ass.getName()+". Assessignment Percentage:"+ass.getPercentage());
+		}
 	}
 
 }

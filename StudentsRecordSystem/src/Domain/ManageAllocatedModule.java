@@ -1,6 +1,9 @@
 package Domain;
 
+import java.util.List;
+
 import Persistence.DAOAssignment;
+import Persistence.DAOUser;
 
 public class ManageAllocatedModule{
 
@@ -24,6 +27,19 @@ public class ManageAllocatedModule{
 		return assignment;
 	}
 
+	public static List<Module> getUserModule(String lecturerID) {
+		return DAOAssignment.getUserModule(lecturerID);
+	}
+
+	public static List<Assignment> getModuleAssignment(String moduleID) {
+		return DAOAssignment.getModuleAssignment(moduleID);
+	}
+
+	public static void setGrade(String studentID, String moduleID) {
+		DAOAssignment.setGrade(studentID,moduleID);
+	}
+
+	
 	
 
 
