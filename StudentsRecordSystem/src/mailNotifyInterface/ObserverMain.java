@@ -2,6 +2,7 @@ package mailNotifyInterface;
 
 import java.util.List;
 
+import Domain.Student;
 import Persistence.DAOMail;
 import UserInterface.LoginMenu;
 
@@ -16,15 +17,18 @@ public class ObserverMain {
 		
 		MailServiceClass mailServiceClass = new MailServiceClass();
 		
+		String id = null;String name = null;String password = null;
+		mailServiceClass.setLecturerId(lecturerId);
+		mailServiceClass.setLecturerInformation(message);
+		
+		Student studentsClass;
+		
 		for(String tempStudents : studentList){
 			
-			StudentsClass studentsClass = new StudentsClass();
+			studentsClass = new Student(id, name, password);
 			
 			studentsClass.setStudentId(tempStudents);
-			mailServiceClass.setLecturerId(lecturerId);
-			mailServiceClass.setLecturerInformation(message);
 			mailServiceClass.registerStudent(studentsClass);
-			
 		}
 		
 		
