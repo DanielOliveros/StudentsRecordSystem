@@ -6,10 +6,10 @@ import Persistence.DAOModule;
 
 
 public class ManageModules {
-	public static Module addModule(String id, String name, int credits, String description, String idProgram){
+	public static Module addModule(String id, String name, int credits, String description, String idProgram, String idLecturer){
 		Module module;
 		if(DAOModule.getModule(id)==null){
-			module = new Module(id, name, credits, description, idProgram);
+			module = new Module(id, name, credits, description, idProgram, idLecturer);
 			DAOModule.createModule(module);
 		}else{
 			module = null;

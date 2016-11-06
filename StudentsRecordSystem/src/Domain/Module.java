@@ -6,13 +6,20 @@ public class Module {
 	private String description;
 	private int credits;
 	private String idProgram;
-	
-	public Module(String id, String name, int credits, String description, String idProgram){
+	private String idLecturer;
+	public Module(String id, String name, int credits, String description, String idProgram, String idLecturer){
 		this.id=id;
 		this.name=name;
 		this.credits=credits;
 		this.description=description;
 		this.idProgram=idProgram;
+		this.idLecturer = idLecturer;
+	}
+	public String getIdLecturer(){
+		return this.idLecturer;
+	}
+	public void setIdLecturer(String idLecturer){
+		this.idLecturer=idLecturer;
 	}
 	public String getIdProgram(){
 		return this.idProgram;
