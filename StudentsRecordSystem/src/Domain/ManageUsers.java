@@ -46,4 +46,10 @@ public class ManageUsers {
 	public static List<ProgramStudents> getAllUsersByProgramID(String programID) {
 		return DAOUser.getAllUsersByProgramID(programID);
 	}
+
+	public static boolean checkModuleState(String moduleId) {
+		boolean result=DAOUser.checkModuleState(moduleId);
+		return result;
+	}
+
 }

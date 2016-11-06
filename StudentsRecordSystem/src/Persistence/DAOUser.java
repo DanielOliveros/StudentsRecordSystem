@@ -229,4 +229,35 @@ public class DAOUser {
         }
 		return result;
 	}
+
+
+
+	public static boolean checkModuleState(String moduleId) {
+		String line;
+		boolean result = false;
+		int total = 0;
+		try{
+	        FileReader f = new FileReader("./StorageFiles/assignment.txt");
+	        BufferedReader b = new BufferedReader(f);
+	        line = b.readLine();
+	        while(line!=""&&line!=null){
+		    	  String[] tmp = line.split(","); 
+		    	  for(int i=0; i<tmp.length; i++){
+						if(tmp[i].indexOf(moduleId)!= -1){
+							total = total + Integer.parseInt(tmp[3]);
+						} 
+					}
+		    }
+	        if(total==100){
+		    	result=true;
+		    }else{
+		    	result=false;
+		    }
+	        b.close();
+		}catch(Exception e){
+			System.out.println("Error in the file reading");
+			result=true;
+		}
+		return result;
+	}
 }

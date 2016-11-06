@@ -6,6 +6,7 @@ public class Module {
 	private String description;
 	private int credits;
 	private String idProgram;
+	
 	public Module(String id, String name, int credits, String description, String idProgram){
 		this.id=id;
 		this.name=name;

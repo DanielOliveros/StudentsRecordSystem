@@ -1,0 +1,12 @@
+String name,String moduleId,String description,int percentage
+midterm,SW66,midterm exam,10
+project1,SW66,project-part1,10
+project2,SW66,project-part2,10
+project3,SW66,project-part3,30
+project4,SW66,project-part4,40
+midterm,SW22,midtermexam,10
+project1,SW22,project-part1,10
+project2,SW22,project-part2,10
+rerer,SW22,rerer,20
+fdsf,SW22,fdsf,10
+fdf,SW22,fdf,40

@@ -2,9 +2,9 @@ package adminMenus;
 
 import java.util.Scanner;
 
+import UserInterface.Menu;
 import mainPackage.LoggedOutState;
 import mainPackage.MySystem;
-import UserInterface.Menu;
 
 public class AdminMenu implements Menu{
 	private static Scanner scan = new Scanner(System.in);
@@ -47,3 +47,4 @@ public class AdminMenu implements Menu{
 		}
 	}
 }
+
