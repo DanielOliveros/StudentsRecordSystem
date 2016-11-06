@@ -22,7 +22,7 @@ public class ManageAllocatedMenu implements Menu {
 		System.out.println("Please insert module ID:");
 		String moduleID = scan.next();
 		if(checkState(moduleID)){
-			System.out.println("this is readdy");
+			System.out.println("this is ready");
 		}else{
 				System.out.println("The assignment in "+moduleID+"is less than 100,please finish it first:");
                 do{
