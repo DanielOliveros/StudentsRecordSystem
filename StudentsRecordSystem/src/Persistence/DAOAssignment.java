@@ -14,8 +14,6 @@ import java.util.Vector;
 
 import Domain.Assignment;
 import Domain.Module;
-import Domain.Program;
-import Domain.ProgramStudents;
 
 public class DAOAssignment {
 	private static Scanner scan = new Scanner(System.in);
@@ -173,13 +171,11 @@ public class DAOAssignment {
 		return assList;
 	}
 
-	public static void setGrade(String studentID, String moduleID) {
-		String content;
-		content=studentID+","+moduleID;
+	public static int setGrade(String studentID, String moduleID) {
+		String line = null;
+		int total = 0;
 		try{
 			BufferedReader br = new BufferedReader(new FileReader("./StorageFiles/assignment.txt"));
-			String line = null;
-			int total = 0;
 			while((line = br.readLine())!= null){		
 				String[] tmp = line.split(",");		//split by ","
 				for(int i=0; i<tmp.length; i++){
@@ -192,17 +188,34 @@ public class DAOAssignment {
 				}
 			}
 			System.out.println("Final grade is: "+total);
-			update(studentID,moduleID,total);
 			br.close();
 		}catch(IOException e){
 			System.out.println("select failed");
 		}finally{
 			
-		}				
-		
+		}
+		return total;	
 	}
 	
-	public static void update(String studentID,String moduleID,int total){
+	public static String chekGradeLevel(int total) {
+		String grade=null;
+		if(total<100&&total>80){
+			grade="A";
+		}else if(total<80&&total>60){
+			grade="B";
+		}else if(total<60&&total>40){
+			grade="C";
+		}else if(total<40&&total>30){
+			grade="D";
+		}else{
+			System.out.println("Wrong grade,Please input grade again! ");
+			grade=null;
+		}
+		System.out.println("Grade leval is: "+grade);
+		return grade;
+	}
+	
+	public static void update(String studentID,String moduleID,String grade){
 		 File file = new File("./StorageFiles/QPV.txt");
 		   try{
 		      if(file.isFile()!=true){
@@ -225,7 +238,7 @@ public class DAOAssignment {
 		       if(line.split(",")[2].equals(content)){ 
 		    	   String str1=line.substring(0,line.indexOf(content));
 		    	   String str2=line.substring(line.indexOf(content)+content.length(),line.length());
-		    	   newtxt.add(str1+total+str2);
+		    	   newtxt.add(str1+grade+str2);
 		       }else{
 		    	   newtxt.add(line);
 		       }
@@ -250,4 +263,6 @@ public class DAOAssignment {
 		    e.printStackTrace();
 		   }
 	}
+
+	
 }

@@ -36,7 +36,9 @@ public class ManageAllocatedModule{
 	}
 
 	public static void setGrade(String studentID, String moduleID) {
-		DAOAssignment.setGrade(studentID,moduleID);
+		int total=DAOAssignment.setGrade(studentID,moduleID);
+		String grade=DAOAssignment.chekGradeLevel(total);
+		DAOAssignment.update(studentID, moduleID, grade);
 	}
 
 	
