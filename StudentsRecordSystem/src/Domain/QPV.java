@@ -1,7 +1,8 @@
 package Domain;
 
+import java.util.Observable;
 
-public class QPV {
+public class QPV extends Observable {
 	private String moduleID;
 	private int studentID;
 	private String grade;
@@ -46,4 +47,18 @@ public class QPV {
 	public void setPercentage(int percentage) {
 		this.percentage = percentage;
 	}
+	//observer pattern:sebject
+	private String data = "";
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        
+        if(!this.data.equals(data)){
+            this.data = data;
+            setChanged();
+        }
+        notifyObservers();
+    }
 }

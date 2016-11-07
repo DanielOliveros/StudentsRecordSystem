@@ -1,6 +1,9 @@
 package Domain;
 
-public class QCA {
+import java.util.Observable;
+import java.util.Observer;
+
+public class QCA implements Observer{
 	private int studentID;
 	private String programID;
 	private double QCA;
@@ -37,4 +40,15 @@ public class QCA {
 	public void setAwardClassification(String awardClassification) {
 		this.awardClassification = awardClassification;
 	}
+	public QCA(Observable o){
+        o.addObserver(this);
+    }
+    
+	//observer pattern:observer
+    @Override
+    public void update(Observable o, Object arg) {
+    	String result=((QPV)o).getData();
+        //System.out.println("state changed£º" + ((QPV)o).getData());
+        ManageAllocatedModule.setQCA(result);
+    }
 }

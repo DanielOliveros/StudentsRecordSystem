@@ -1,11 +1,11 @@
 package Domain;
 
 import java.util.List;
+import java.util.Observer;
 
 import Persistence.DAOAssignment;
-import Persistence.DAOUser;
 
-public class ManageAllocatedModule{
+public class ManageAllocatedModule {
 
 	public static String checkState(String moduleID) {
 		return DAOAssignment.checkState(moduleID);
@@ -13,15 +13,15 @@ public class ManageAllocatedModule{
 
 	public static Assignment addAssignment(String name, String moduleId, String description, int percentage) {
 		Assignment assignment;
-		if(DAOAssignment.getItem(name)==null){
-			String result=DAOAssignment.checkBeforeAdd(moduleId,percentage);
-			if(result=="not ready"||result=="ready"){
-			assignment = new Assignment(name, moduleId, description,percentage);
-			DAOAssignment.createAssignment(assignment);
-			}else{
+		if (DAOAssignment.getItem(name) == null) {
+			String result = DAOAssignment.checkBeforeAdd(moduleId, percentage);
+			if (result == "not ready" || result == "ready") {
+				assignment = new Assignment(name, moduleId, description, percentage);
+				DAOAssignment.createAssignment(assignment);
+			} else {
 				assignment = null;
 			}
-		}else{
+		} else {
 			assignment = null;
 		}
 		return assignment;
@@ -36,13 +36,26 @@ public class ManageAllocatedModule{
 	}
 
 	public static void setGrade(String studentID, String moduleID) {
-		int total=DAOAssignment.setGrade(studentID,moduleID);
-		String grade=DAOAssignment.chekGradeLevel(total);
+		int total = DAOAssignment.setGrade(studentID, moduleID);
+		String grade = DAOAssignment.chekGradeLevel(total);
 		DAOAssignment.update(studentID, moduleID, grade);
+		double checkqpv = DAOAssignment.chekQPVLevel(grade);
+		DAOAssignment.setQPV(studentID, moduleID, checkqpv);
+		int percentage = DAOAssignment.chekPercentage(checkqpv);
+		DAOAssignment.setPercentage(studentID, moduleID, percentage);
+		
+		//Observer pattern
+		QPV qpv = new QPV(moduleID,Integer.parseInt(studentID),grade,checkqpv,percentage);
+		Observer qca = new QCA(qpv);
+		String sIDqpv=studentID;
+		qpv.setData(sIDqpv);
 	}
 
-	
-	
-
+	public static void setQCA(String studentId) {
+		double qca=DAOAssignment.setQCA(studentId);
+		DAOAssignment.addQCA(studentId,qca);
+		String award = DAOAssignment.checkAwardLevel(qca);
+		DAOAssignment.addAward(studentId, award);
+	}
 
 }
