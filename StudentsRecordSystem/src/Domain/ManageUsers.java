@@ -22,7 +22,7 @@ public class ManageUsers {
 		QCA qca;
 		QPV qpv;
 		double QCA = 0.00,QPV = 0;
-		String awardClassification = null;
+		String awardClassification = "empty";
 		int percentage = 0;
 		String moduleId = null,grade = null;
 		boolean result=DAOUser.checkProStu(programId,studentId);

@@ -4,6 +4,8 @@ project1,CS764,project-part1,10
 project2,CS764,project-part2,10
 project3,CS764,project-part3,30
 project4,CS764,project-part4,40
-midterm,CS572,midtermexam,10
+midterm,CS572,midterm exam,10
 project1,CS572,project-part1,10
-test,CS455,testlist,100
+Final exam,CS455,Final exam,70
+Midterm exam,CS455,midterm exam,30
+final,CS572,fianl,80

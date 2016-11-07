@@ -1,2 +1,10 @@
 studentID,programID,QCA,awardClassification
-16025164,SW66,3.0,B
+16025164,SW66,0.0,D
+999,SW66,0.0,empty
+475,SW66,0.0,empty
+747,SW66,0.0,empty
+245,SW66,0.0,empty
+256,SW66,1.0,D
+278,SW66,2.0,C
+235,SW22,0.0,empty
+1313,SW66,0.0,empty

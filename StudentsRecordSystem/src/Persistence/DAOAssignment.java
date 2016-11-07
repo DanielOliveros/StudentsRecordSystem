@@ -400,14 +400,17 @@ public class DAOAssignment {
 			BufferedReader br = new BufferedReader(new FileReader("./StorageFiles/QPV.txt"));
 			while ((line = br.readLine()) != null) {
 				String[] tmp = line.split(","); // split by ","
-				for (int i = 0; i < tmp.length; i++) {
-					if (tmp[i].indexOf(studentID) != -1) {
+				//for (int i = 0; i < tmp.length; i++) {
+					if (tmp[1].indexOf(studentID) != -1) {
+						if(tmp[3]!=""){
 						moduleID = tmp[0];
 						qpv = tmp[3];
 						credit=getCredit(moduleID);
 						total += Double.parseDouble(qpv)*credit;
 						totalcredit+=credit;
-					}
+						System.out.println(moduleID+", "+qpv+", "+credit+", "+totalcredit);
+						}
+					//}
 				}
 			}
 			total=total/totalcredit;

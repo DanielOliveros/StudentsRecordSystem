@@ -191,7 +191,7 @@ public class DAOUser {
 				String[] tmp = line1.split(",");		//split by ","
 				for(int i=0; i<tmp.length; i++){
 					if(tmp[i].indexOf(programId)!= -1){
-						newinformation = "\n"+tmp[0]+","+content+", , , ";
+						newinformation = "\n"+tmp[0]+","+content+",D,1.0,0";
 				        writer.write(newinformation);
 					}
 				}
