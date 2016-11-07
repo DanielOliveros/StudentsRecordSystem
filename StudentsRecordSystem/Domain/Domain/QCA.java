@@ -4,22 +4,22 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class QCA implements Observer{
-	private int studentID;
+	private String studentID;
 	private String programID;
 	private double QCA;
 	private String awardClassification;
 
-	public QCA(int studentID, String programID, double QCA, String awardClassification){
+	public QCA(String studentID, String programID, double QCA, String awardClassification){
 		this.studentID = studentID;
 		this.programID = programID;
 		this.QCA = QCA;
 		this.awardClassification = awardClassification;
 	}
 	
-	public int getStudentID() {
+	public String getStudentID() {
 		return studentID;
 	}
-	public void setStudentID(int studentID) {
+	public void setStudentID(String studentID) {
 		this.studentID = studentID;
 	}
 	public String getProgramID() {
@@ -48,7 +48,7 @@ public class QCA implements Observer{
     @Override
     public void update(Observable o, Object arg) {
     	String result=((QPV)o).getData();
-        //System.out.println("state changed£º" + ((QPV)o).getData());
+        //System.out.println("state changedï¿½ï¿½" + ((QPV)o).getData());
         ManageAllocatedModule.setQCA(result);
     }
 }

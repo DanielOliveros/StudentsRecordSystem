@@ -2,7 +2,7 @@ package Domain;
 
 import java.util.List;
 
-import Persistence.DAOModule;
+import persistence.DAOModule;
 
 
 public class ManageModules {

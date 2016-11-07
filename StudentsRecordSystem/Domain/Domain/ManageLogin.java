@@ -1,6 +1,6 @@
 package Domain;
 
-import Persistence.DAOUser;
+import persistence.DAOUser;
 
 
 public class ManageLogin {

@@ -4,10 +4,15 @@ import java.util.List;
 import java.util.Scanner;
 
 import Domain.Assignment;
+import Domain.Lecturer;
 import Domain.ManageAllocatedModule;
 import Domain.ManageUsers;
 import Domain.Module;
+import Domain.ProgramStudents;
 import UserInterface.Menu;
+import mainPackage.LoggedInState;
+import mainPackage.MySystem;
+import persistence.DAOModule;
 
 public class ManageAllocatedMenu implements Menu {
 	private static Scanner scan = new Scanner(System.in);
@@ -17,10 +22,13 @@ public class ManageAllocatedMenu implements Menu {
 	@Override
 	public void display() {
 		int option;
-		System.out.println("Please input your ID:");
-		String lecturerID = scan.next();
-		listUserModules(lecturerID);
-		System.out.println("Please insert module ID:");
+		
+		LoggedInState currentState = (LoggedInState) MySystem.getSystem().getState();
+		Lecturer lecturer = (Lecturer) currentState.getCurrentUser();//scan.next();
+		System.out.println("Lecturer logged in: "+lecturer.getName());
+		System.out.println("Allocated modules list:" );
+		listUserModules(lecturer.getId());
+		System.out.println("Please insert one module ID:");
 		String moduleID = scan.next();
 		if(checkState(moduleID)){
 			listModuleAssessment(moduleID);
@@ -31,9 +39,21 @@ public class ManageAllocatedMenu implements Menu {
                 }while(!checkState(moduleID));
                 listModuleAssessment(moduleID);
 		}
-		System.out.println("Please insert student ID:");
+		System.out.println("The module is ready to start assessing students. ");
+		System.out.println("Please insert student ID of this module:");
+		listProgramStudents(moduleID);
 		String studentID = scan.next();
 		setGrade(studentID,moduleID);
+	}
+	
+	public void listProgramStudents(String moduleID){
+		Module module = DAOModule.getModule(moduleID);
+		String programID = module.getIdProgram();
+		List<ProgramStudents> students = ManageUsers.getAllUsersByProgramID(programID);
+		for(int i=0; i<students.size(); i++){
+			ProgramStudents stu = students.get(i);
+			System.out.println((i+1)+". Program ID:"+stu.getProgramID() +"     Student ID:"+stu.getStudentID());
+		}
 	}
 	
 	

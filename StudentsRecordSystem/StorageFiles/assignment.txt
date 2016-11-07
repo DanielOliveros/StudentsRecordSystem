@@ -1,11 +1,3 @@
-String name,String moduleId,String description,int percentage
-midterm,CS764,midterm exam,10
-project1,CS764,project-part1,10
-project2,CS764,project-part2,10
-project3,CS764,project-part3,30
-project4,CS764,project-part4,40
-midterm,CS572,midterm exam,10
-project1,CS572,project-part1,10
-Final exam,CS455,Final exam,70
-Midterm exam,CS455,midterm exam,30
-final,CS572,fianl,80
+Mid term,ModuleID,mid term exam,10
+Project,ModuleID,project development,40
+Final term,ModuleID,final term exam,50

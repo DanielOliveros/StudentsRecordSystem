@@ -1,6 +1,1 @@
-programID,programName,90,progDesc
-SW66,Software Engineering,90,Software Engineering program
-CS5151,Software test,60,Test methods of Software
-CS001,Computer Science,70,master of Computer Science
-MP001,Marketing,60,Business School program
-M008,Music,40,Music School program,
+ProgramID,ProgramID,90,ProgramDesc

@@ -3,7 +3,7 @@ package Domain;
 import java.util.List;
 import java.util.Observer;
 
-import Persistence.DAOAssignment;
+import persistence.DAOAssignment;
 
 public class ManageAllocatedModule {
 
@@ -45,7 +45,7 @@ public class ManageAllocatedModule {
 		DAOAssignment.setPercentage(studentID, moduleID, percentage);
 		
 		//Observer pattern
-		QPV qpv = new QPV(moduleID,Integer.parseInt(studentID),grade,checkqpv,percentage);
+		QPV qpv = new QPV(moduleID,studentID,grade,checkqpv,percentage);
 		Observer qca = new QCA(qpv);
 		String sIDqpv=studentID;
 		qpv.setData(sIDqpv);

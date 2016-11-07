@@ -4,12 +4,12 @@ import java.util.Observable;
 
 public class QPV extends Observable {
 	private String moduleID;
-	private int studentID;
+	private String studentID;
 	private String grade;
 	private double QPV;
 	private int percentage;
 	
-	public QPV(String moduleID, int studentID, String grade, double QPV, int percentage){
+	public QPV(String moduleID, String studentID, String grade, double QPV, int percentage){
 		this.moduleID = moduleID;
 		this.studentID = studentID;
 		this.grade = grade;
@@ -23,10 +23,10 @@ public class QPV extends Observable {
 	public void setModuleID(String moduleID) {
 		this.moduleID = moduleID;
 	}
-	public int getStudentID() {
+	public String getStudentID() {
 		return studentID;
 	}
-	public void setStudentID(int studentID) {
+	public void setStudentID(String studentID) {
 		this.studentID = studentID;
 	}
 	public String getGrade() {

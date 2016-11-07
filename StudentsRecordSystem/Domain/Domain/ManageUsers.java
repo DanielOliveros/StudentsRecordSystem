@@ -2,7 +2,7 @@ package Domain;
 
 import java.util.List;
 
-import Persistence.DAOUser;
+import persistence.DAOUser;
 
 public class ManageUsers {
 	
@@ -28,10 +28,10 @@ public class ManageUsers {
 		boolean result=DAOUser.checkProStu(programId,studentId);
 		if(!result){
 			prostu = new ProgramStudents(programId, studentId);
-			qca = new QCA(Integer.parseInt(studentId),programId,QCA,awardClassification);
+			qca = new QCA(studentId,programId,QCA,awardClassification);
 			DAOUser.registerStudentIntoProgram(prostu);
 			DAOUser.createQCA(qca);
-			qpv = new QPV(moduleId,Integer.parseInt(studentId),grade,QPV,percentage);
+			qpv = new QPV(moduleId,studentId,grade,QPV,percentage);
 			DAOUser.createQPVs(qpv);
 		}else{
 			prostu = null;

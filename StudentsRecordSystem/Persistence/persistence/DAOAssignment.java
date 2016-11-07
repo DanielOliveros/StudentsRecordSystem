@@ -1,4 +1,4 @@
-package Persistence;
+package persistence;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,7 +16,7 @@ import Domain.Assignment;
 import Domain.Module;
 import Domain.ProgramStudents;
 
-public class DAOAssignment {
+public class DAOAssignment implements DAOInterface{
 	private static Scanner scan = new Scanner(System.in);
 
 	public static String checkState(String moduleID) {
@@ -342,7 +342,7 @@ public class DAOAssignment {
 			System.out.println("Wrong grade,Please input grade again! ");
 			percentage = 0;
 		}
-		System.out.println("Percentage leval is: " + percentage+"%");
+		System.out.println("Percentage level is: " + percentage+"%");
 		return percentage;
 	}
 
@@ -408,7 +408,6 @@ public class DAOAssignment {
 						credit=getCredit(moduleID);
 						total += Double.parseDouble(qpv)*credit;
 						totalcredit+=credit;
-						System.out.println(moduleID+", "+qpv+", "+credit+", "+totalcredit);
 						}
 					//}
 				}
@@ -553,6 +552,24 @@ public class DAOAssignment {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<Object> getAll() {
+		
+		return null;
+	}
+
+	@Override
+	public List<Object> getById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean createObject(Object object) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	

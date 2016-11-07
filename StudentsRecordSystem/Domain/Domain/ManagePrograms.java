@@ -3,8 +3,8 @@ package Domain;
 
 import java.util.List;
 
-import Persistence.DAOProgram;
-import Persistence.DAOUser;
+import persistence.DAOProgram;
+import persistence.DAOUser;
 
 public class ManagePrograms {
 	

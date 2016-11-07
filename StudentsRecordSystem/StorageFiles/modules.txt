@@ -1,5 +1,1 @@
-moduleID,moduleName,6,modDesc,programID,LecturerID4
-CS572,SoftwareDesign,6,learn how to design software, SW66,LecturerID5
-CS455,Software Requirements,6,learn how to elicitate requirements,SW66,LecturerID2
-CS764,Concurrency,6,learn how to implement concurrency,SW22,LecturerID1
-CS345,Software Requirements,6,learn how to elicitate requirements,SW22,LecturerID3
+ModuleID,ModuleID,6,ModuleDesc,ProgramID,LecturerID
