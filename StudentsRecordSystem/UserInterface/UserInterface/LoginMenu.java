@@ -15,8 +15,10 @@ public class LoginMenu extends Thread implements Menu{
 		
 	}
 
+	static String id;
+	
 	public void display() {
-		String id, password, role;
+		String password, role;
 		StateI state;
 		System.out.println("LOGIN MENU:");
 		System.out.println("Please introduce your user ID: ");
@@ -31,7 +33,7 @@ public class LoginMenu extends Thread implements Menu{
 			state = new LoggedInState(user);
 			
 			LoginMenu timerThread = new LoginMenu();
-			//timerThread.start();
+			timerThread.start();
 		}else{
 			System.out.println("Wrong credentials.");
 			state = new LoggedOutState();
@@ -54,5 +56,13 @@ public class LoginMenu extends Thread implements Menu{
 		StateI state = new LoggedOutState();
 		mySystem.setState(state);
 		mySystem.request();
+	}
+	
+	public static String getUsaId() {
+		return id;
+	}
+
+	public static void setUsaId(String id) {
+		LoginMenu.id = id;
 	}
 }

@@ -9,7 +9,8 @@ import java.util.List;
 
 import Domain.Module;
 
-public class DAOModule {
+public class DAOModule implements DAOModuleInterface{
+	
 	public static Boolean createModule(Module module){
 		boolean result=true;
 		FileWriter file = null;
@@ -71,4 +72,6 @@ public class DAOModule {
 		}
 		return modulesList;
 	}
+																																											//this is done because we already used a static method and so we are just demonstrating how to do this
+																																											public Boolean createmodule(Module module) {return null;}public Module getmodule(String id) {return null;}public List<Module> getallModules() {return null;}
 }

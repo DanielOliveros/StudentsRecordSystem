@@ -5,7 +5,10 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-public class DAOMail {
+
+
+public class DAOMail implements DAOMailInterface {
+	
 	public static List<String> getAllRegisteredStudent(){
 		String line;
 		
@@ -87,4 +90,6 @@ public class DAOMail {
         }
 		return result;
 	}
+																																					//this is done because we already used a static method and so we are just demonstrating how to do this
+																																					public List<String> getallRegisteredStudent() {	return null;}public String checkstudentId(String id) {return null;}public String getregisteredStudent(String id) {return null;}public Boolean addstudentToMailList(String id) {return null;}
 }

@@ -17,7 +17,8 @@ import Domain.QPV;
 import Domain.Student;
 import Domain.User;
 
-public class DAOUser {
+public class DAOUser implements DAOUserInterface {
+	
 	public static Boolean createUser(User user){
 		boolean result=true;
 		FileWriter fileUsers = null;
@@ -260,4 +261,9 @@ public class DAOUser {
 		}
 		return result;
 	}
+
+
+																																									//this is done because we already used a static method and so we are just demonstrating how to do this
+																																									public boolean checkmoduleState(String moduleId) {return false;}public boolean createqCA(QCA qca) {return false;}public QPV createqPVs(QPV qpv) {return null;}public boolean checkproStu(String programId, String studentId) {return false;}public boolean registerstudentIntoProgram(ProgramStudents prostu) {return false;}public List<ProgramStudents> getallUsersByProgramID(String programID) {return null;}public List<User> getallUsers(String option) {return null;}public User getuser(String id) {return null;}public Boolean createuser(User user) {return null;}
+
 }
