@@ -1,3 +1,0 @@
-Mid term,ModuleID,mid term exam,10
-Project,ModuleID,project development,40
-Final term,ModuleID,final term exam,50

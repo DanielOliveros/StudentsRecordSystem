@@ -48,7 +48,6 @@ public class QCA implements Observer{
     @Override
     public void update(Observable o, Object arg) {
     	String result=((QPV)o).getData();
-        //System.out.println("state changed��" + ((QPV)o).getData());
         ManageAllocatedModule.setQCA(result);
     }
 }

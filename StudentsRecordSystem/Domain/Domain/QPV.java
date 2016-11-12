@@ -47,7 +47,7 @@ public class QPV extends Observable {
 	public void setPercentage(int percentage) {
 		this.percentage = percentage;
 	}
-	//observer pattern:sebject
+	//observer pattern:subject
 	private String data = "";
     public String getData() {
         return data;

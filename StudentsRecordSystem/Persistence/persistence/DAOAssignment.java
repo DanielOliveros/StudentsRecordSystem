@@ -231,16 +231,15 @@ public class DAOAssignment implements DAOAssignmentInterface{
 			String linecount = null;
 			while (line != "" && line != null) {
 				String[] tmp = line.split(",");
-				for (int i = 0; i < tmp.length; i++) {
 					if (tmp[1].indexOf(studentID) != -1 && tmp[0].indexOf(moduleID) != -1) {
 						content = tmp[2];
 						linecount = line;
 					}
-				}
 				if (line == linecount) {
 					if (line.split(",")[2].equals(content)) {
 						String str1 = line.substring(0, line.indexOf(content));
 						String str2 = line.substring(line.indexOf(content) + content.length(), line.length());
+						grade=grade+":";
 						newtxt.add(str1 + grade + str2);
 					} else {
 						newtxt.add(line);
@@ -357,19 +356,20 @@ public class DAOAssignment implements DAOAssignmentInterface{
 			Vector newtxt = new Vector();
 			String content = null;
 			String linecount = null;
+			String percentage1 = percentage+":";
 			while (line != "" && line != null) {
 				String[] tmp = line.split(",");
-				for (int i = 0; i < tmp.length; i++) {
+				//for (int i = 0; i < tmp.length; i++) {
 					if (tmp[1].indexOf(studentID) != -1 && tmp[0].indexOf(moduleID) != -1) {
 						content = tmp[4];
 						linecount = line;
 					}
-				}
+				//}
 				if (line == linecount) {
 					if (line.split(",")[4].equals(content)) {
 						String str1 = line.substring(0, line.indexOf(content));
 						String str2 = line.substring(line.indexOf(content) + content.length(), line.length());
-						newtxt.add(str1 + percentage + str2);
+						newtxt.add(str1 + percentage1 + str2);
 					} else {
 						newtxt.add(line);
 					}
@@ -402,7 +402,7 @@ public class DAOAssignment implements DAOAssignmentInterface{
 				String[] tmp = line.split(","); // split by ","
 				//for (int i = 0; i < tmp.length; i++) {
 					if (tmp[1].indexOf(studentID) != -1) {
-						if(tmp[3]!=""){
+						if(tmp[3]!=" "){
 						moduleID = tmp[0];
 						qpv = tmp[3];
 						credit=getCredit(moduleID);

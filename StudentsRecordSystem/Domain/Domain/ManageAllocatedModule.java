@@ -39,9 +39,11 @@ public class ManageAllocatedModule {
 		int total = DAOAssignment.setGrade(studentID, moduleID);
 		String grade = DAOAssignment.chekGradeLevel(total);
 		DAOAssignment.update(studentID, moduleID, grade);
+		grade = grade.substring(0, 1);
 		double checkqpv = DAOAssignment.chekQPVLevel(grade);
 		DAOAssignment.setQPV(studentID, moduleID, checkqpv);
 		int percentage = DAOAssignment.chekPercentage(checkqpv);
+		
 		DAOAssignment.setPercentage(studentID, moduleID, percentage);
 		
 		//Observer pattern
