@@ -33,7 +33,7 @@ public class ManageAllocatedMenu implements Menu {
 		if(checkState(moduleID)){
 			listModuleAssessment(moduleID);
 		}else{
-				System.out.println("The assignment in "+moduleID+"is less than 100,please finish it first:");
+				System.out.println("The assignment in "+moduleID+" is less than 100,please finish it first:");
                 do{
                 	addAssignment(moduleID);				
                 }while(!checkState(moduleID));

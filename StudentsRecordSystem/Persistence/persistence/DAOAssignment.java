@@ -183,7 +183,7 @@ public class DAOAssignment implements DAOAssignmentInterface{
 				String[] tmp = line.split(","); // split by ","
 				for (int i = 0; i < tmp.length; i++) {
 					if (tmp[i].indexOf(moduleID) != -1) {
-						System.out.println("Please input grade of " + tmp[2] + " (full mark is 100):");
+						System.out.println("Please input grade of " + tmp[0] + " (full mark is 100):");
 						int number = scan.nextInt();
 						number = number * Integer.parseInt(tmp[3]) / 100;
 						total += number;
